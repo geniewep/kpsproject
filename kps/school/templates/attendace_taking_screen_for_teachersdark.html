@@ -58,10 +58,10 @@
 <h2 class="text-text-light text-lg font-bold leading-tight tracking-[-0.015em]">Kampala Parents Primary</h2>
 </div>
 <div class="hidden md:flex flex-1 justify-center gap-8">
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Dashboard</a>
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Students</a>
-<a class="text-accent text-sm font-bold leading-normal" href="#">Attendance</a>
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Grades</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'teacher_dashboard_dark' %}">Dashboard</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'student_profile_dark' %}">Students</a>
+<a class="text-accent text-sm font-bold leading-normal" href="{% url 'attendance_teachers_dark' %}">Attendance</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'grading_marks_entry_dark' %}">Grades</a>
 </div>
 <div class="flex items-center gap-2">
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-background-dark text-text-light text-sm font-bold leading-normal tracking-[0.015em]">

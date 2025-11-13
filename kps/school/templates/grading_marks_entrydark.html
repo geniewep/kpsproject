@@ -71,10 +71,10 @@
 </div>
 <div class="hidden md:flex flex-1 justify-end gap-8">
 <div class="flex items-center gap-9">
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Dashboard</a>
-<a class="text-accent text-sm font-bold leading-normal" href="#">Marks Entry</a>
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Reports</a>
-<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="#">Students</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'teacher_dashboard_dark' %}">Dashboard</a>
+<a class="text-accent text-sm font-bold leading-normal" href="{% url 'grading_marks_entry_dark' %}">Marks Entry</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'report_generation_for_admin' %}">Reports</a>
+<a class="text-text-dark text-sm font-medium leading-normal hover:text-accent" href="{% url 'student_profile_dark' %}">Students</a>
 </div>
 <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent/20 text-accent text-sm font-bold leading-normal tracking-[0.015em]">
 <span class="truncate">Logout</span>

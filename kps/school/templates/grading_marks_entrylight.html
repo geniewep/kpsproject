@@ -70,10 +70,10 @@
 </div>
 <div class="hidden md:flex flex-1 justify-end gap-8">
 <div class="flex items-center gap-9">
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="#">Dashboard</a>
-<a class="text-primary text-sm font-bold leading-normal" href="#">Marks Entry</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="#">Reports</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="#">Students</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="{% url 'teacher_dashboard_light' %}">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal" href="{% url 'grading_marks_entry_light' %}">Marks Entry</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="{% url 'report_generation_for_admin' %}">Reports</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary" href="{% url 'student_profile_light' %}">Students</a>
 </div>
 <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 dark:bg-primary/30 text-primary text-sm font-bold leading-normal tracking-[0.015em]">
 <span class="truncate">Logout</span>

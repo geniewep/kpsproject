@@ -60,30 +60,30 @@
 </div>
 </div>
 <nav class="flex flex-col gap-2">
-<a class="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary" href="#">
+    <a class="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary" href="{% url 'admin_dashboard_light' %}">
 <span class="material-symbols-outlined !font-['Material_Symbols_Outlined']" style="font-variation-settings: 'FILL' 1;">dashboard</span>
 <p class="text-sm font-medium">Dashboard</p>
 </a>
-<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="#">
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="{% url 'user_management' %}">
 <span class="material-symbols-outlined">group</span>
 <p class="text-sm font-medium">User Management</p>
 </a>
-<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="#">
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="{% url 'user_management' %}">
 <span class="material-symbols-outlined">assessment</span>
 <p class="text-sm font-medium">School-wide Reports</p>
 </a>
-<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="#">
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="{% url 'report_generation_for_admin' %}">
 <span class="material-symbols-outlined">settings</span>
 <p class="text-sm font-medium">System Settings</p>
 </a>
-<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="#">
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="{% url 'school_wide_announcements' %}">
 <span class="material-symbols-outlined">campaign</span>
 <p class="text-sm font-medium">Announcements</p>
 </a>
 </nav>
 </div>
 <div class="border-t border-border-dark p-4">
-<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="#">
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-dark-secondary hover:bg-white/10 hover:text-white" href="{% url 'system_settings' %}">
 <span class="material-symbols-outlined">logout</span>
 <p class="text-sm font-medium">Logout</p>
 </a>
@@ -171,7 +171,7 @@
 <div class="rounded-xl bg-card-dark p-6 border border-border-dark flex flex-col gap-4">
 <div class="flex items-center justify-between">
 <h3 class="text-lg font-semibold text-white">Recent Activity</h3>
-<a class="text-sm font-medium text-primary hover:underline" href="#">View All</a>
+<a class="text-sm font-medium text-primary hover:underline" href="{% url 'report_generation_for_admin' %}">View All</a>
 </div>
 <div class="divide-y divide-border-dark">
 <div class="py-3 flex items-start gap-4">

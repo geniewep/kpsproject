@@ -56,34 +56,34 @@
 </div>
 </div>
 <div class="flex flex-col gap-2 mt-4">
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="{% url 'teacher_dashboard_light' %}">
 <span class="material-symbols-outlined text-2xl">dashboard</span>
 <p class="text-sm font-medium leading-normal">Dashboard</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'student_profile_light' %}">
 <span class="material-symbols-outlined text-2xl">group</span>
 <p class="text-sm font-medium leading-normal">Students</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'admin_dashboard_light' %}">
 <span class="material-symbols-outlined text-2xl">school</span>
 <p class="text-sm font-medium leading-normal">Classes</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'grading_marks_entry_light' %}">
 <span class="material-symbols-outlined text-2xl">grading</span>
 <p class="text-sm font-medium leading-normal">Grading</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'report_generation_for_admin' %}">
 <span class="material-symbols-outlined text-2xl">assessment</span>
 <p class="text-sm font-medium leading-normal">Reports</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'messaging_interface_light' %}">
 <span class="material-symbols-outlined text-2xl">mail</span>
 <p class="text-sm font-medium leading-normal">Messages</p>
 </a>
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'system_settings' %}">
 <span class="material-symbols-outlined text-2xl">settings</span>
 <p class="text-sm font-medium leading-normal">Settings</p>
 </a>
@@ -164,7 +164,7 @@
 </div>
 <div class="flex flex-col">
 <p class="text-slate-700 dark:text-slate-300 text-sm">
-<strong>Akeello Flavia</strong> submitted <a class="text-primary hover:underline font-medium" href="#">Science Homework</a>.
+<strong>Akeello Flavia</strong> submitted <a class="text-primary hover:underline font-medium" href="{% url 'student_profile_light' %}">Science Homework</a>.
                         </p>
 <p class="text-slate-400 dark:text-slate-500 text-xs">2 hours ago</p>
 </div>
@@ -197,7 +197,7 @@
 </div>
 <div class="flex flex-col">
 <p class="text-slate-700 dark:text-slate-300 text-sm">
-<strong>Muwanguzi Peter</strong> submitted <a class="text-primary hover:underline font-medium" href="#">Mathematics Test</a>.
+<strong>Muwanguzi Peter</strong> submitted <a class="text-primary hover:underline font-medium" href="{% url 'student_profile_light' %}">Mathematics Test</a>.
                         </p>
 <p class="text-slate-400 dark:text-slate-500 text-xs">4 days ago</p>
 </div>

@@ -34,6 +34,9 @@ class InsertNavMiddleware(MiddlewareMixin):
 
         ("Reports", 'report_generation_for_admin'),
         ("Announcements", 'school_wide_announcements'),
+        ("User Management", 'user_management'),
+        ("Settings", 'system_settings'),
+        ("Calendar", 'calendar'),
     ]
 
     NAV_WRAPPER_START = (

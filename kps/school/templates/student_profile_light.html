@@ -55,10 +55,10 @@
 </div>
 <div class="flex flex-1 justify-end items-center gap-4 sm:gap-6">
 <div class="hidden md:flex items-center gap-6">
-<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="#">Dashboard</a>
-<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="#">Students</a>
-<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="#">Classes</a>
-<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="#">Reports</a>
+<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
+<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="{% url 'student_profile_light' %}">Students</a>
+<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="{% url 'teacher_dashboard_light' %}">Classes</a>
+<a class="text-gray-300 hover:text-accent text-sm font-medium leading-normal" href="{% url 'report_generation_for_admin' %}">Reports</a>
 </div>
 <div class="flex gap-2">
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg size-10 bg-gray-800 text-gray-300 hover:bg-gray-700">
@@ -91,16 +91,16 @@
 <div class="bg-[#242424] rounded-xl border border-gray-800">
 <div class="pb-3">
 <div class="flex border-b border-gray-800 px-4 gap-8 overflow-x-auto">
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-accent text-accent pb-[13px] pt-4 whitespace-nowrap" href="#">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-accent text-accent pb-[13px] pt-4 whitespace-nowrap" href="{% url 'student_profile_light' %}">
 <p class="text-sm font-bold leading-normal tracking-[0.015em]">Academics</p>
 </a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="#">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="{% url 'student_profile_light' %}">
 <p class="text-sm font-bold leading-normal tracking-[0.015em]">Attendance</p>
 </a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="#">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="{% url 'student_profile_light' %}">
 <p class="text-sm font-bold leading-normal tracking-[0.015em]">Behavior</p>
 </a>
-<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="#">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-400 hover:text-white pb-[13px] pt-4 whitespace-nowrap" href="{% url 'student_profile_light' %}">
 <p class="text-sm font-bold leading-normal tracking-[0.015em]">Communication Log</p>
 </a>
 </div>
@@ -189,8 +189,4 @@
 </div>
 </div>
 </div>
-</main>
-</div>
-</div>
-
 </body></html>

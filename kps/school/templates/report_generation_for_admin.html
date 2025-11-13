@@ -60,10 +60,10 @@
 </div>
 <div class="hidden md:flex flex-1 justify-end gap-8">
 <div class="flex items-center gap-9">
-<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="#">Dashboard</a>
-<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="#">Students</a>
-<a class="text-sm font-medium leading-normal text-action dark:text-white font-bold" href="#">Reports</a>
-<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="#">Settings</a>
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'student_profile_light' %}">Students</a>
+<a class="text-sm font-medium leading-normal text-action dark:text-white font-bold" href="{% url 'report_generation_for_admin' %}">Reports</a>
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'system_settings' %}">Settings</a>
 </div>
 <div class="flex gap-2">
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-gray-700/50 text-text-dark dark:text-gray-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
@@ -82,9 +82,9 @@
 <main class="flex flex-1 justify-center py-5 sm:py-8 px-4">
 <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 gap-6">
 <div class="flex flex-wrap gap-2 px-4">
-<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="#">Dashboard</a>
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
 <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="#">Reports</a>
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="{% url 'report_generation_for_admin' %}">Reports</a>
 <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
 <span class="text-text-dark dark:text-white text-sm font-medium leading-normal">Generate Report</span>
 </div>
