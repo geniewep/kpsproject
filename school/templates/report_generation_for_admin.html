@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report Generator - Kampala Parents Primary School</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "action": "#0033A0",
+              "accent": "#FCDC04",
+              "text-dark": "#343A40",
+              "border-light": "#DEE2E6"
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-dark dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-gray-700 px-4 md:px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-text-dark dark:text-white">
+<div class="size-6 text-action">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Kampala Parents Primary School</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'student_profile_light' %}">Students</a>
+<a class="text-sm font-medium leading-normal text-action dark:text-white font-bold" href="{% url 'report_generation_for_admin' %}">Reports</a>
+<a class="text-sm font-medium leading-normal text-text-dark dark:text-gray-300 hover:text-action dark:hover:text-white" href="{% url 'system_settings' %}">Settings</a>
+</div>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-gray-700/50 text-text-dark dark:text-gray-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-gray-700/50 text-text-dark dark:text-gray-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDSlI96boKFR8_LuJhoWEtoKcaRcokVtxkjS5NTQDJqslHW-j8fFxzDJg4f4MsqKDmyxbTBeeHyqXTlfQk8MKbS2z6urMEdWAMFJcK6PsR-omVjW0631v2hTJELj_3-7yOvXaDPh2hOQIe05Aaa20xSy8kim5V1ckqQMiRCfXQrFmDhsEy9_d-kjDcOFVUdwP_to_aECDFceHQQ28wwErgHQeCuGWz1otixMYJSFm9O5x7fDxueFOBqzSLTMvm9ADGTqECLD6rFH9HI");'></div>
+</div>
+<button class="md:hidden flex items-center justify-center p-2 rounded-lg bg-background-light dark:bg-gray-700/50">
+<span class="material-symbols-outlined text-2xl text-text-dark dark:text-gray-300">menu</span>
+</button>
+</header>
+<main class="flex flex-1 justify-center py-5 sm:py-8 px-4">
+<div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 gap-6">
+<div class="flex flex-wrap gap-2 px-4">
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-action" href="{% url 'report_generation_for_admin' %}">Reports</a>
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<span class="text-text-dark dark:text-white text-sm font-medium leading-normal">Generate Report</span>
+</div>
+<div class="flex flex-wrap justify-between gap-3 px-4">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-text-dark dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Report Generator</p>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Select a report template, apply filters, and generate your file.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4">
+<div class="flex flex-col rounded-xl shadow-md bg-white dark:bg-gray-800 border border-border-light dark:border-gray-700 overflow-hidden">
+<div class="flex flex-col gap-4 p-6">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center size-12 rounded-lg bg-action/10 text-action dark:bg-action/20 dark:text-blue-300">
+<span class="material-symbols-outlined text-3xl">bar_chart</span>
+</div>
+<div class="flex-1">
+<p class="text-text-dark dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Termly Academic Performance</p>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">Summary of student grades and averages for the selected term.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-800/50 p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="date-range-1">Select Date Range</label>
+<input class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="date-range-1" placeholder="Term 1: Jan 1 - Apr 30" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="grade-1">Filter by Grade</label>
+<select class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="grade-1">
+<option>All Grades</option>
+<option>Primary 1</option>
+<option>Primary 2</option>
+<option>Primary 3</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="class-1">Filter by Class</label>
+<select class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="class-1">
+<option>All Classes</option>
+<option>P1 East</option>
+<option>P1 West</option>
+</select>
+</div>
+</div>
+<button class="mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-action text-white text-base font-bold leading-normal hover:bg-action/90 transition-colors">
+<span class="material-symbols-outlined">settings_applications</span>
+<span class="truncate">Generate Report</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl shadow-md bg-white dark:bg-gray-800 border border-border-light dark:border-gray-700 overflow-hidden">
+<div class="flex flex-col gap-4 p-6">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center size-12 rounded-lg bg-action/10 text-action dark:bg-action/20 dark:text-blue-300">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<div class="flex-1">
+<p class="text-text-dark dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Full Attendance Log</p>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">Detailed record of student attendance, including absences and tardiness.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-800/50 p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="date-range-2">Select Date Range</label>
+<input class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="date-range-2" placeholder="Term 1: Jan 1 - Apr 30" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="grade-2">Filter by Grade</label>
+<select class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="grade-2">
+<option>All Grades</option>
+<option>Primary 1</option>
+<option>Primary 2</option>
+</select>
+</div>
+</div>
+<button class="mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-action text-white text-base font-bold leading-normal hover:bg-action/90 transition-colors">
+<span class="material-symbols-outlined">settings_applications</span>
+<span class="truncate">Generate Report</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl shadow-md bg-white dark:bg-gray-800 border border-border-light dark:border-gray-700 overflow-hidden">
+<div class="flex flex-col gap-4 p-6">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center size-12 rounded-lg bg-action/10 text-action dark:bg-action/20 dark:text-blue-300">
+<span class="material-symbols-outlined text-3xl">gavel</span>
+</div>
+<div class="flex-1">
+<p class="text-text-dark dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Behavioral Incidents Summary</p>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal mt-1">A log of all recorded positive and negative behavioral incidents.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-800/50 p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="date-range-3">Select Date Range</label>
+<input class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="date-range-3" placeholder="Term 1: Jan 1 - Apr 30" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-text-dark dark:text-gray-300" for="grade-3">Filter by Grade</label>
+<select class="w-full h-10 px-3 rounded-lg border border-border-light dark:border-gray-600 bg-white dark:bg-gray-700 text-sm focus:ring-2 focus:ring-action/50 focus:border-action" id="grade-3">
+<option>All Grades</option>
+<option>Primary 4</option>
+<option>Primary 5</option>
+</select>
+</div>
+</div>
+<button class="mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-action text-white text-base font-bold leading-normal hover:bg-action/90 transition-colors">
+<span class="material-symbols-outlined">settings_applications</span>
+<span class="truncate">Generate Report</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 opacity-100 visible transition-opacity">
+<div class="relative w-full max-w-md rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-border-light dark:border-gray-700 p-6 text-center">
+<button class="absolute top-3 right-3 flex items-center justify-center size-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+<div class="mx-auto flex items-center justify-center size-16 rounded-full bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-300">
+<span class="material-symbols-outlined text-4xl">check_circle</span>
+</div>
+<h3 class="mt-5 text-xl font-bold text-text-dark dark:text-white">Report Ready</h3>
+<p class="mt-2 text-gray-600 dark:text-gray-400">Your 'Termly Academic Performance' report is ready for viewing and download.</p>
+<div class="mt-6 flex flex-col gap-3">
+<button class="flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-action text-white text-base font-bold leading-normal hover:bg-action/90 transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+<span class="truncate">Preview Report</span>
+</button>
+<div class="flex gap-3">
+<button class="flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-gray-100 dark:bg-gray-700 text-text-dark dark:text-gray-300 text-base font-bold leading-normal hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span class="truncate">Download PDF</span>
+</button>
+<button class="flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-gray-100 dark:bg-gray-700 text-text-dark dark:text-gray-300 text-base font-bold leading-normal hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="material-symbols-outlined">description</span>
+<span class="truncate">Download CSV</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

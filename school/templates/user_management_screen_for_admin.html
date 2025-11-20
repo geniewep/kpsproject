@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management - Kampala Parents Primary School</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 sm:px-10 py-3 bg-white dark:bg-background-dark shadow-sm">
+<div class="flex items-center gap-4 text-gray-800 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Kampala Parents Primary School</h2>
+</div>
+    <div class="hidden md:flex flex-1 justify-end gap-8">
+    <div class="flex items-center gap-6">
+    <a class="text-sm font-medium leading-normal text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="{% url 'admin_dashboard_light' %}">Dashboard</a>
+    <a class="text-sm font-bold leading-normal text-primary border-b-2 border-primary pb-1" href="{% url 'user_management' %}">User Management</a>
+    <a class="text-sm font-medium leading-normal text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="{% url 'report_generation_for_admin' %}">Reports</a>
+    <a class="text-sm font-medium leading-normal text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="{% url 'system_settings' %}">Settings</a>
+    </div>
+<div class="flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-700">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-background-light dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-background-light dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqQ-5AeEFZYcbAFIP18h0PPZynhTBN-RfGx4LiYLqDYoPhLsmNqFVdBSEMUd_IkTe6t6ATCKsAZxIXwDcKVdwVv_0wPAlckLTeioemxtdnGtVdWDiheE7q2URXHABOLtIGpicIcQk9TGr4Ovt7mx18DAyy8K0M3rtAAHtO7inlTTxUFx23yKKIohSBXLIlNebmr8ns9vgJTNju3jfYH8kRQmh61IVzEGFAKrGGa1c6NLYfk56LFgeic8dRWxJ38WV4dx1QEfA1NgD-");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-4 mb-6">
+<h1 class="text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white">User Management</h1>
+<button class="flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add New User</span>
+</button>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+<div class="w-full">
+<div class="flex border-b border-gray-200 dark:border-gray-700 gap-8">
+                    <a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-2" href="{% url 'student_profile_light' %}">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Students</p>
+</a>
+                    <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 pb-[13px] pt-2" href="{% url 'parent_dashboard_light' %}">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Parents</p>
+</a>
+                    <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 pb-[13px] pt-2" href="{% url 'teacher_dashboard_light' %}">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Teachers</p>
+</a>
+</div>
+</div>
+<div class="w-full md:w-auto md:max-w-xs">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 dark:text-gray-400 flex bg-background-light dark:bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-800 dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-background-light dark:bg-gray-700 h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by name or ID" value=""/>
+</div>
+</label>
+</div>
+</div>
+<div class="@container">
+<div class="flex overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+<table class="flex-1 w-full">
+<thead>
+<tr class="bg-background-light dark:bg-gray-900/50">
+<th class="p-4 text-left w-12 text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</th>
+<th class="p-4 text-left text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">Name</th>
+<th class="p-4 text-left text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">ID</th>
+<th class="p-4 text-left text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">Role</th>
+<th class="p-4 text-left text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">Status</th>
+<th class="p-4 text-left text-sm font-medium leading-normal text-gray-600 dark:text-gray-300">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<td class="p-4 w-12 text-sm font-normal leading-normal">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</td>
+<td class="p-4 text-sm font-medium leading-normal text-gray-900 dark:text-white">Amina Okoro</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">S001</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Student</td>
+<td class="p-4 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4 text-sm font-medium leading-normal space-x-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Deactivate</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<td class="p-4 w-12 text-sm font-normal leading-normal">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</td>
+<td class="p-4 text-sm font-medium leading-normal text-gray-900 dark:text-white">Baraka Onyango</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">S002</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Student</td>
+<td class="p-4 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4 text-sm font-medium leading-normal space-x-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Deactivate</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<td class="p-4 w-12 text-sm font-normal leading-normal">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</td>
+<td class="p-4 text-sm font-medium leading-normal text-gray-900 dark:text-white">Chidinma Adebayo</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">S003</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Student</td>
+<td class="p-4 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-200">Inactive</span>
+</td>
+<td class="p-4 text-sm font-medium leading-normal space-x-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-green-500 hover:underline">Activate</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<td class="p-4 w-12 text-sm font-normal leading-normal">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</td>
+<td class="p-4 text-sm font-medium leading-normal text-gray-900 dark:text-white">David Kato</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">S004</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Student</td>
+<td class="p-4 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4 text-sm font-medium leading-normal space-x-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Deactivate</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<td class="p-4 w-12 text-sm font-normal leading-normal">
+<input class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary/50 dark:focus:ring-offset-background-dark" type="checkbox"/>
+</td>
+<td class="p-4 text-sm font-medium leading-normal text-gray-900 dark:text-white">Eshe Lwanga</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">S005</td>
+<td class="p-4 text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Student</td>
+<td class="p-4 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4 text-sm font-medium leading-normal space-x-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Deactivate</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-4 text-sm text-gray-500 dark:text-gray-400">
+<p>Showing 1 to 5 of 25 results</p>
+<div class="flex items-center gap-2 mt-2 sm:mt-0">
+<button class="flex items-center justify-center rounded-lg h-9 w-9 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-9 w-9 bg-primary text-white text-sm font-bold">1</button>
+<button class="flex items-center justify-center rounded-lg h-9 w-9 hover:bg-gray-100 dark:hover:bg-gray-700">2</button>
+<button class="flex items-center justify-center rounded-lg h-9 w-9 hover:bg-gray-100 dark:hover:bg-gray-700">3</button>
+<span>...</span>
+<button class="flex items-center justify-center rounded-lg h-9 w-9 hover:bg-gray-100 dark:hover:bg-gray-700">5</button>
+<button class="flex items-center justify-center rounded-lg h-9 w-9 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kampala Parents PS - Messaging</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#137fec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            {% extends 'base.html' %}
+            {% load static %}
+
+            {% block title %}Messages{% endblock %}
+
+            {% block head_extra %}
+            <script id="tailwind-config">
+                tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#86181B", "background-light": "#f6f7f8", "background-dark": "#101922" } } } };
+            </script>
+            <style>
+                .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+            </style>
+            {% endblock %}
+
+            {% block topnav %}
+            <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-6 py-3 sticky top-0 z-10">
+              <div class="flex items-center gap-4 text-[#181411] dark:text-gray-200">
+                <div class="size-5 text-primary">
+                  <span class="material-symbols-outlined">mail</span>
+                </div>
+                <h2 class="text-[#181411] dark:text-gray-200 text-lg font-bold">Messages</h2>
+              </div>
+              <div class="flex gap-2">
+                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 text-[#181411] dark:bg-white/10 dark:text-gray-300">
+                  <span class="material-symbols-outlined text-lg">notifications</span>
+                </button>
+                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 text-[#181411] dark:bg-white/10 dark:text-gray-300">
+                  <span class="material-symbols-outlined text-lg">settings</span>
+                </button>
+              </div>
+            </div>
+            {% endblock %}
+
+            {% block content %}
+            <div class="px-4 sm:px-6 lg:px-8 flex flex-1 justify-center py-5">
+              <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 gap-6">
+                <div class="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+                  <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-bold">Messages</h2>
+                    <button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-white">
+                      <span class="material-symbols-outlined">add</span>
+                      New Message
+                    </button>
+                  </div>
+                  <div class="mt-4 flex gap-4">
+                    <div class="w-1/3 bg-gray-50 rounded-lg p-3">
+                      <input class="w-full rounded-md border p-2" placeholder="Search conversations" />
+                      <ul class="mt-3 space-y-2">
+                        <li class="p-2 rounded-md bg-white">Mr. Okello</li>
+                        <li class="p-2 rounded-md bg-white">Mrs. Nabirye</li>
+                        <li class="p-2 rounded-md bg-white">Mr. Kato</li>
+                      </ul>
+                    </div>
+                    <div class="flex-1 bg-gray-50 rounded-lg p-3">
+                      <div class="h-72 overflow-y-auto">
+                        <div class="p-2 bg-white rounded-md mb-2">Hello, I wanted to ask about Grace's recent assessment.</div>
+                        <div class="p-2 bg-primary/10 rounded-md mb-2">Sure, she scored 92% in Mathematics.</div>
+                      </div>
+                      <div class="mt-3 flex gap-2">
+                        <input class="flex-1 rounded-md border p-2" placeholder="Type a message" />
+                        <button class="px-3 py-2 rounded-md bg-primary text-white">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endblock %}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Administrator Dashboard - Kampala Parents Primary School</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#009E49",
+                        "secondary": "#FCDC04",
+                        "accent": "#DA121A",
+                        "background-light": "#F4F7FC",
+                        "background-dark": "#1A202C",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#2D3748",
+                        "text-light": "#1A202C",
+                        "text-dark": "#F7FAFC",
+                        "border-light": "#E2E8F0",
+                        "border-dark": "#4A5568",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex h-screen w-64 flex-col justify-between bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark fixed left-0 top-0">
+<div class="flex flex-col gap-8 p-4">
+<div class="flex items-center gap-3 px-3 py-2">
+<img alt="Uganda Crest" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUeyO-MxVOGbS-5MNQ4edKH0yidPtWQ3N8As1liFobVjec_nN1Jjot25djHvYY_6h0TDZR0pQK-w3cjGJR2Kr6iBZw8IwadStvH6JrUlAJ0-eMqYqrCh4PvT9gh1kUjxvqY9qBHCHihuM0yFVwFl7i3VbHh4HG8ZlEcC4MYBtCuIMwQRpy1124ArQsK5ZeBVHcIUesz9izcPta2IDl2zjbkGVNDZI3AhDUP3AoQeP4TPnudArjIm91UPth-fL3cl-0iKqvOSAM-_Ea"/>
+<div class="flex flex-col">
+<h1 class="text-base font-bold leading-tight">Kampala Parents</h1>
+<p class="text-sm font-normal text-text-light/70 dark:text-text-dark/70">Primary School</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2 text-primary" href="{% url 'admin_dashboard_dark' %}">
+<span class="material-symbols-outlined !font-['Material_Symbols_Outlined']" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-white/10" href="{% url 'user_management' %}">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">User Management</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-white/10" href="{% url 'user_management' %}">
+<span class="material-symbols-outlined">assessment</span>
+<p class="text-sm font-medium">School-wide Reports</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-white/10" href="{% url 'report_generation_for_admin' %}">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">System Settings</p>
+</a>
+    <a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-white/10" href="{% url 'school_wide_announcements' %}">
+<span class="material-symbols-outlined">campaign</span>
+<p class="text-sm font-medium">Announcements</p>
+</a>
+</nav>
+</div>
+<div class="border-t border-border-light dark:border-border-dark p-4">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-white/10" href="{% url 'system_settings' %}">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 pl-64">
+<div class="flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-10 py-4 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Administrator Dashboard</h2>
+</div>
+<div class="flex flex-1 items-center justify-end gap-4">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark border border-border-light dark:border-border-dark">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Administrator's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCAzvy5hHXpH2wSikSTcuSDWON03j8f5i7kqJX0drE0SGkxIpbUEO1XszadbbQOybRlZtfFmUW4d4J9Ar1SS_1Lh1B-PYYxjRaJPRfl2EfJ3wUNdZG7rFmbWdp1nCMX1cBPxsEKBOzt13x8RF0fUGrWoZgERXTLTBJu2vSwaGAoeZv3FdhwYRk_l-lPFbpZ00kijekdcQcHprQyM0zJcYQSrfh6WfqAoyI5RNX7OENZTVYG1iQ5TmimkEDSehLoKP_ro65OaXdDx1J");'></div>
+<div class="flex flex-col text-right">
+<p class="text-sm font-semibold">Jane Doe</p>
+<p class="text-xs text-text-light/70 dark:text-text-dark/70">Administrator</p>
+</div>
+</div>
+</div>
+</header>
+<div class="p-6 lg:p-10 flex flex-col gap-6 lg:gap-8">
+<!-- PageHeading -->
+<div>
+<p class="text-3xl font-bold leading-tight tracking-tight">Dashboard Overview</p>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+<div class="flex flex-1 flex-col gap-2 rounded-xl bg-card-light p-6 dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-base font-medium text-text-light/80 dark:text-text-dark/80">Total Students</p>
+<p class="tracking-light text-3xl font-bold leading-tight">1,240</p>
+<p class="text-primary text-sm font-medium leading-normal">+1.5% from last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl bg-card-light p-6 dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-base font-medium text-text-light/80 dark:text-text-dark/80">Average Attendance</p>
+<p class="tracking-light text-3xl font-bold leading-tight">92%</p>
+<p class="text-accent text-sm font-medium leading-normal">-0.8% from last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl bg-card-light p-6 dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-base font-medium text-text-light/80 dark:text-text-dark/80">Teacher-Parent Communication</p>
+<p class="tracking-light text-3xl font-bold leading-tight">85%</p>
+<p class="text-primary text-sm font-medium leading-normal">+5% from last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl bg-card-light p-6 dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-base font-medium text-text-light/80 dark:text-text-dark/80">Behavioral Incidents</p>
+<p class="tracking-light text-3xl font-bold leading-tight">12</p>
+<p class="text-primary text-sm font-medium leading-normal">-2 incidents from last week</p>
+</div>
+</div>
+<!-- Filters/Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-2 hover:bg-gray-100 dark:hover:bg-white/10">
+<p class="text-sm font-medium">Date Range: Last 30 Days</p>
+<span class="material-symbols-outlined">arrow_drop_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-2 hover:bg-gray-100 dark:hover:bg-white/10">
+<p class="text-sm font-medium">Grade Level: All</p>
+<span class="material-symbols-outlined">arrow_drop_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-2 hover:bg-gray-100 dark:hover:bg-white/10">
+<p class="text-sm font-medium">Subject: All</p>
+<span class="material-symbols-outlined">arrow_drop_down</span>
+</button>
+</div>
+<!-- Data Visualizations Grid -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-5 xl:gap-8">
+<div class="lg:col-span-3 rounded-xl bg-card-light dark:bg-card-dark p-6 border border-border-light dark:border-border-dark flex flex-col gap-4">
+<h3 class="text-lg font-semibold">Attendance Trends</h3>
+<div class="flex-grow min-h-[300px]">
+<img class="h-full w-full object-contain" data-alt="A bar chart showing monthly attendance trends with green and red bars." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs2LKxvsvxpd3ZYbJ0GkpH4iWEsERGFnTB7AZMLZOF3ttymxcereiCftRxe1Td9J6kGPit70MXOCmB0n-qra0_2oXx2WkMD6PT2H75qSCWkX7lG70IiMR5fwk-mTrZKOaYd-mBAAOZhnH1kQDG-kCGgo1dhb-0AqBbVvUkvAnWthIaYDfXftfV5HpKLq6dqIPUnGcxqAU3VfjRCcCxhVHodL7-qG-3s-3BFKifrW_8SEXO31kCBNmnE3Podpk5PyUdMEg1yo1SDFG4"/>
+</div>
+</div>
+<div class="lg:col-span-2 rounded-xl bg-card-light dark:bg-card-dark p-6 border border-border-light dark:border-border-dark flex flex-col gap-4">
+<h3 class="text-lg font-semibold">Subject Grade Distribution</h3>
+<div class="flex-grow min-h-[300px]">
+<img class="h-full w-full object-contain" data-alt="A pie chart showing grade distribution with yellow, green, and red sections representing different grades." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvNIm8T7x8TtXi177RxhcZMvg_Cr9iGN-wAUYMdrIKtPABAXdgO-cJkmYf_fhEJ64H6QyG5wHMwYYMnP3Iyl7VYzeMssaB9ZjfUS6Aif0TY5EGYqoNOjyyhzdpyBsX7H3p1nLjQGcl6I-1kE-gCWmq9w4aiBIRm1ZpP2kDTXBGxVquDXvE8K19jy5Cpuio3cjW8LqlgB0sRlRkG2xXcA030aKAA8oVv98mGgLRc39vLnbLL5u6L5vg23SplUqqNnyRXOLfBIfH29Qr"/>
+</div>
+</div>
+<div class="lg:col-span-5 rounded-xl bg-card-light dark:bg-card-dark p-6 border border-border-light dark:border-border-dark flex flex-col gap-4">
+<h3 class="text-lg font-semibold">Academic Performance Over Time</h3>
+<div class="flex-grow min-h-[300px]">
+<img class="h-full w-full object-contain" data-alt="A line graph showing student performance trends over several months, with an upward trending green line." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAZsISaa-ytJtMeLOaPwVg9_flvPF9Tit0LrkJkhEshzcb7v4zBHUsqRIn6DIJdm_bcVndfAJVaoNpT1-dHt3quRNz0xPH4f2ThvH80J14fbthcuOlBPGIYZGT24q1V-Nm8WKfZOnLFHO0n059D3XW7XPPy6ABsUNW3WcXky6iwpn_K1VigmWPEsW9gjdSJC7DqZMIO2JuUvlqruxgHK3tyRo74mvDcSb-EAr5kC1GjOrwPhKJ0UmpcBlNoNu9l-0_u_C0eLgnkdSz"/>
+</div>
+</div>
+</div>
+<!-- Quick Access Panel -->
+<div class="rounded-xl bg-card-light dark:bg-card-dark p-6 border border-border-light dark:border-border-dark flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-semibold">Recent Activity</h3>
+<a class="text-sm font-medium text-primary hover:underline" href="{% url 'report_generation_for_admin' %}">View All</a>
+</div>
+<div class="divide-y divide-border-light dark:divide-border-dark">
+<div class="py-3 flex items-start gap-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
+<span class="material-symbols-outlined">report</span>
+</div>
+<div>
+<p class="font-medium">New Behavioral Incident Report</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Grade 5, John Okello - Reported by Mrs. Achenyo. <span class="font-semibold">2 hours ago</span></p>
+</div>
+</div>
+<div class="py-3 flex items-start gap-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<p class="font-medium">System Announcement: Parent-Teacher Conferences</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Scheduled for next Friday. Please check your emails for details. <span class="font-semibold">Yesterday</span></p>
+</div>
+</div>
+<div class="py-3 flex items-start gap-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/20 text-yellow-500">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div>
+<p class="font-medium">New School-wide Report Available</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Q2 Attendance and Performance Summary is now ready for review. <span class="font-semibold">3 days ago</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teacher Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        @layer base {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#25aeff",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#1a1c1e",
+                        "panel-dark": "#25282c",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-dark text-slate-200 group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-row">
+<div class="flex h-full min-h-screen flex-col justify-between border-r border-slate-800 bg-panel-dark p-4 w-64 fixed">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-200 text-base font-medium leading-normal">Kampala Parents</h1>
+<p class="text-slate-400 text-sm font-normal leading-normal">Primary School</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="{% url 'teacher_dashboard_dark' %}">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'student_profile_dark' %}">
+<span class="material-symbols-outlined text-2xl">group</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'admin_dashboard_dark' %}">
+<span class="material-symbols-outlined text-2xl">school</span>
+<p class="text-sm font-medium leading-normal">Classes</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'grading_marks_entry_dark' %}">
+<span class="material-symbols-outlined text-2xl">grading</span>
+<p class="text-sm font-medium leading-normal">Grading</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'report_generation_for_admin' %}">
+<span class="material-symbols-outlined text-2xl">assessment</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'messaging_interface_dark' %}">
+<span class="material-symbols-outlined text-2xl">mail</span>
+<p class="text-sm font-medium leading-normal">Messages</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors" href="{% url 'system_settings' %}">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<main class="flex flex-1 flex-col ml-64">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-800 px-10 py-3 bg-panel-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-slate-200">
+<h2 class="text-slate-200 text-lg font-bold leading-tight tracking-[-0.015em]">Dashboard</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex bg-slate-800 items-center justify-center pl-3 rounded-l-lg">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-200 focus:outline-0 focus:ring-0 border-none bg-slate-800 h-full placeholder:text-slate-400 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal" placeholder="Search students, classes..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Teacher profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBaaDp57gqR1-AL4pmd6UPGrmp6gniEbMM_lNvMvawBvARKyKV_yMcwHnwb3jyxvxcU5NaCVThxnSsbLyrPRqpGQVAbFrzCFE5DWobcxAJjpHNj3chPrwEPy9Cq_FCGlHiPcB0ooDVIswMgkZhfAZ6Qdjt7a4SLWAl27PFPu8Gkz67OdBLMs_60H7WWIoi5Bs69LJwxiuIbTs3iLka4YT0CiIhwHcArFMY7ogwLsJspHee7G1JcadxYfBVbMy_1zqjGMfvbLpSz269B");'></div>
+</div>
+</header>
+<div class="flex-1 p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+<div class="lg:col-span-2 flex flex-col gap-8">
+<div class="flex flex-wrap justify-between gap-3">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-slate-100 text-4xl font-black leading-tight tracking-[-0.033em]">Welcome back, Mrs. Nakato!</p>
+<p class="text-slate-400 text-base font-normal leading-normal">Here is a summary of your day.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<div class="flex flex-col gap-3 pb-3 rounded-xl bg-panel-dark border border-slate-800 p-4 hover:shadow-lg hover:border-primary transition-all cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image representing classes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcwRO_BlecMYqg3xPVM02AissW_4J4t1r-dfWtWJkq7FkNzyWZVPE-nFN3O4mncTalJcnuEcNtZHmAewmW7TueAB8wiODtsuqKBeSvOpQd2oscjGAnmaMrowJJhfnths_BqI-Po2BRQQLDX5sJzeSyGjSrIvtVSv3DLJMZeNohOPhfPFi65RidWLi6-JHGFVRUXjVQ4M3zKlNQh2_-m1zWcxqem5RzWRe3e-eT9MTcLCb9j2s8ydHlqkuxAMHUBaDomTvVt1cfDo2A");'></div>
+<div>
+<p class="text-slate-200 text-base font-medium leading-normal">My Classes</p>
+<p class="text-slate-400 text-sm font-normal leading-normal">Manage your class lists</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 rounded-xl bg-panel-dark border border-slate-800 p-4 hover:shadow-lg hover:border-primary transition-all cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image for attendance" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBT43bBj1CyLO03r_N6Y3z62RoTTTwM09tuliE8jMDzOUpBeZbkysPo7zX4__orV1KZoK961rw0FxjVT5GwqTJBNFIUQcDHYwmidqFdsSUME1oT0cqLYvjtdhefqpia1Cmej9G1VhLZMd8XnFS8hC6QdYoac7Pi0aw9Bpz5nftEr9KctLRo4HblrQH7eyap69BeL36W_lEUBlbAtA9AYUlF6gs5lZ7PGxfQ8p_NwjVlpiP-QbB8Zc0sXaSPSYxwBXjapgmtvpOfW1w_");'></div>
+<div>
+<p class="text-slate-200 text-base font-medium leading-normal">Take Attendance</p>
+<p class="text-slate-400 text-sm font-normal leading-normal">Mark daily student attendance</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 rounded-xl bg-panel-dark border border-slate-800 p-4 hover:shadow-lg hover:border-primary transition-all cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image for grades" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6mN0F5g_2EchUISEDCKMhdr3q4_WBiURwI9RmD366yQ0CrVHBLYrj3qnjlsdnCcvJj74LDez9V_gsrajd6qMjHTb8D1MGYdhYbToLF7txclSAI9yQX0uaaM13fEsOb2zaKOTvXjeB7PSU_aa4U3bAhdWczaXp_vUQxtK9ezJDojPgDOraFp3NH_zRo3ozsdSTdH9ur8klYxXDExXH2u4N9NL3cVdD8ZzB5aMLtGzV-xKLR42R2lPEmeDIcqKrYul1xkFOSU13VPiM");'></div>
+<div>
+<p class="text-slate-200 text-base font-medium leading-normal">Enter Grades</p>
+<p class="text-slate-400 text-sm font-normal leading-normal">Input and update student grades</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 rounded-xl bg-panel-dark border border-slate-800 p-4 hover:shadow-lg hover:border-primary transition-all cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image for messages" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtSXQMzPfq6TNoP5I_ZlhAlsVCj_Pcbpfjpry_dUGpT7gVJjrbZl4yWPTyCb3L62avGaeZC4OvblIML-gXqsZyzCvYEX3dLRT75gnTKfmHvbX85LyrJGGJXm2aU1QdfSDPNTJBl0Ftf5K71zPKiHvwFRVVh-txtda3oFG8X_Wa9vCKLgJCy1A85Fssh7_ZGKLV8UFkojXKfFZyjgdNMwpTiVizCb6_v3tuhdl6anJenbIZLQnNzwNVhyCOabyO3Yhyss1ZB2yaLWi3");'></div>
+<div>
+<p class="text-slate-200 text-base font-medium leading-normal">View Messages</p>
+<p class="text-amber-400 text-sm font-medium leading-normal">3 new messages</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 bg-panel-dark rounded-xl border border-slate-800 p-6 flex flex-col h-fit">
+<h2 class="text-slate-100 text-xl font-bold leading-tight tracking-[-0.015em] pb-4 border-b border-slate-800">Recent Activity</h2>
+<ul class="flex flex-col gap-4 pt-4">
+<li class="flex items-start gap-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-green-500/10 text-green-400">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-300 text-sm">
+<strong>Akeello Flavia</strong> submitted <a class="text-primary hover:underline font-medium" href="{% url 'student_profile_dark' %}">Science Homework</a>.
+                        </p>
+<p class="text-slate-500 text-xs">2 hours ago</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-blue-500/10 text-blue-400">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-300 text-sm">
+                            New message from <strong>Mrs. Okello</strong> (Parent of Okello Ivan).
+                        </p>
+<p class="text-slate-500 text-xs">Yesterday, 4:30 PM</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-purple-500/10 text-purple-400">
+<span class="material-symbols-outlined">event</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-300 text-sm">
+                            Upcoming: <strong>Parent-Teacher Conferences</strong> is scheduled for next Friday.
+                        </p>
+<p class="text-slate-500 text-xs">3 days ago</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-green-500/10 text-green-400">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-300 text-sm">
+<strong>Muwanguzi Peter</strong> submitted <a class="text-primary hover:underline font-medium" href="{% url 'student_profile_dark' %}">Mathematics Test</a>.
+                        </p>
+<p class="text-slate-500 text-xs">4 days ago</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-red-500/10 text-red-400">
+<span class="material-symbols-outlined">flag</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-300 text-sm">
+<strong>2 assignments</strong> are due for grading in P.5 English class.
+                        </p>
+<p class="text-slate-500 text-xs">5 days ago</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

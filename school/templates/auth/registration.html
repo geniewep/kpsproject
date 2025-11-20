@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Account - Kampala Parents Primary School</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#86181B",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Lexend"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#1A1A1A] p-4 md:p-6">
+<div class="w-full max-w-md space-y-8">
+<div class="flex flex-col items-center text-center">
+  <img src="{% static 'img/logo.png' %}" alt="KPPS logo" class="h-12 w-12 object-cover" />
+  <h1 class="mt-4 text-3xl font-bold tracking-tight text-[#E0E0E0]">Create Your Account</h1>
+  <p class="mt-2 text-sm text-gray-400">Register as a Parent or Teacher to get started.</p>
+</div>
+<div class="rounded-xl bg-[#2C2C2C] p-6 shadow-lg md:p-8">
+<form method="post" class="space-y-6">{% csrf_token %}
+<div class="grid grid-cols-1 gap-x-4 gap-y-6">
+<label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Username</p>
+  <input name="username" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Choose a username" type="text" value=""/>
+</label>
+<label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Email Address</p>
+  <input name="email" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Enter your email address" type="email" value=""/>
+</label>
+<label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">User Role</p>
+  <div class="relative">
+    <select name="role" class="form-select h-12 w-full appearance-none rounded-lg border border-[#444] bg-[#1A1A1A] p-3 pr-8 text-base font-normal text-[#E0E0E0] focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary">
+      <option value="parent">Parent</option>
+      <option value="teacher">Teacher</option>
+    </select>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+      <span class="material-symbols-outlined text-xl">expand_more</span>
+    </div>
+  </div>
+</label>
+<label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Password</p>
+  <div class="relative flex w-full flex-1 items-stretch">
+    <input name="password1" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Create a password" type="password" value=""/>
+    <button class="flex items-center justify-center rounded-r-lg border border-l-0 border-[#444] bg-[#1A1A1A] px-3 text-gray-400 hover:text-white" type="button">
+      <span class="material-symbols-outlined text-xl">visibility</span>
+    </button>
+  </div>
+</label>
+<label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Confirm Password</p>
+  <div class="relative flex w-full flex-1 items-stretch">
+    <input name="password2" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#FF4757] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Confirm your password" type="password" value=""/>
+    <button class="flex items-center justify-center rounded-r-lg border border-l-0 border-[#FF4757] bg-[#1A1A1A] px-3 text-gray-400 hover:text-white" type="button">
+      <span class="material-symbols-outlined text-xl">visibility_off</span>
+    </button>
+  </div>
+</label>
+</div>
+<div class="flex items-center space-x-2">
+<input class="h-4 w-4 rounded border-gray-500 bg-[#1A1A1A] text-primary focus:ring-primary" id="terms" name="terms" type="checkbox"/>
+<label class="text-sm text-gray-400" for="terms"> I agree to the <a class="font-medium text-primary hover:underline" href="#">Terms and Conditions</a> </label>
+</div>
+<button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#2C2C2C]">Register</button>
+</form>
+</div>
+<p class="text-center text-sm text-gray-400">
+  Already have an account?
+  <a class="font-medium text-[#4A90E2] hover:underline" href="{% url 'login' %}">Login</a>
+</p>
+</div>
+</div>
+</body></html>
