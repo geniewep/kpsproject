@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 
-<html class="dark" lang="en"><head>
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Create Account - Kampala Parents Primary School</title>
@@ -39,30 +39,39 @@
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
+  <style>
+    /* Remove browser blue focus ring and use site primary (#86181B) as focus border */
+    input:focus, textarea:focus, select:focus, button:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 4px rgba(134,24,27,0.08) !important;
+      border-color: #86181B !important;
+    }
+    input:focus-visible { outline: none; }
+  </style>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark">
-<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#1A1A1A] p-4 md:p-6">
+<body class="font-display bg-background-light">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light p-4 md:p-6">
 <div class="w-full max-w-md space-y-8">
 <div class="flex flex-col items-center text-center">
   <img src="{% static 'img/logo.png' %}" alt="KPPS logo" class="h-12 w-12 object-cover" />
-  <h1 class="mt-4 text-3xl font-bold tracking-tight text-[#E0E0E0]">Create Your Account</h1>
-  <p class="mt-2 text-sm text-gray-400">Register as a Parent or Teacher to get started.</p>
+  <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900">Create Your Account</h1>
+  <p class="mt-2 text-sm text-gray-600">Register as a Parent or Teacher to get started.</p>
 </div>
-<div class="rounded-xl bg-[#2C2C2C] p-6 shadow-lg md:p-8">
+<div class="rounded-xl bg-white p-6 shadow-sm md:p-8">
 <form method="post" class="space-y-6">{% csrf_token %}
 <div class="grid grid-cols-1 gap-x-4 gap-y-6">
-<label class="flex flex-col">
-  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Username</p>
-  <input name="username" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Choose a username" type="text" value=""/>
+  <label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-gray-800">Username</p>
+  <input name="username" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-200 bg-white p-3 text-base font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-0" placeholder="Choose a username" type="text" value=""/>
 </label>
-<label class="flex flex-col">
-  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Email Address</p>
-  <input name="email" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Enter your email address" type="email" value=""/>
+  <label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-gray-800">Email Address</p>
+  <input name="email" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-200 bg-white p-3 text-base font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-0" placeholder="Enter your email address" type="email" value=""/>
 </label>
-<label class="flex flex-col">
-  <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">User Role</p>
+  <label class="flex flex-col">
+  <p class="pb-2 text-sm font-medium leading-normal text-gray-800">User Role</p>
   <div class="relative">
-    <select name="role" class="form-select h-12 w-full appearance-none rounded-lg border border-[#444] bg-[#1A1A1A] p-3 pr-8 text-base font-normal text-[#E0E0E0] focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary">
+    <select name="role" class="form-select h-12 w-full appearance-none rounded-lg border border-gray-200 bg-white p-3 pr-8 text-base font-normal text-gray-900 focus:border-primary focus:outline-none focus:ring-0">
       <option value="parent">Parent</option>
       <option value="teacher">Teacher</option>
     </select>
@@ -74,7 +83,7 @@
 <label class="flex flex-col">
   <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Password</p>
   <div class="relative flex w-full flex-1 items-stretch">
-    <input name="password1" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Create a password" type="password" value=""/>
+    <input name="password1" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#444] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-none focus:ring-0" placeholder="Create a password" type="password" value=""/>
     <button class="flex items-center justify-center rounded-r-lg border border-l-0 border-[#444] bg-[#1A1A1A] px-3 text-gray-400 hover:text-white" type="button">
       <span class="material-symbols-outlined text-xl">visibility</span>
     </button>
@@ -83,7 +92,7 @@
 <label class="flex flex-col">
   <p class="pb-2 text-sm font-medium leading-normal text-[#E0E0E0]">Confirm Password</p>
   <div class="relative flex w-full flex-1 items-stretch">
-    <input name="password2" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#FF4757] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-0 focus:ring-1 focus:ring-primary" placeholder="Confirm your password" type="password" value=""/>
+    <input name="password2" class="form-input h-12 w-full flex-1 resize-none overflow-hidden rounded-l-lg border border-r-0 border-[#FF4757] bg-[#1A1A1A] p-3 text-base font-normal leading-normal text-[#E0E0E0] placeholder:text-gray-500 focus:border-primary focus:z-10 focus:outline-none focus:ring-0" placeholder="Confirm your password" type="password" value=""/>
     <button class="flex items-center justify-center rounded-r-lg border border-l-0 border-[#FF4757] bg-[#1A1A1A] px-3 text-gray-400 hover:text-white" type="button">
       <span class="material-symbols-outlined text-xl">visibility_off</span>
     </button>
@@ -91,15 +100,15 @@
 </label>
 </div>
 <div class="flex items-center space-x-2">
-<input class="h-4 w-4 rounded border-gray-500 bg-[#1A1A1A] text-primary focus:ring-primary" id="terms" name="terms" type="checkbox"/>
+<input class="h-4 w-4 rounded border-gray-500 bg-[#1A1A1A] text-primary focus:ring-0" id="terms" name="terms" type="checkbox"/>
 <label class="text-sm text-gray-400" for="terms"> I agree to the <a class="font-medium text-primary hover:underline" href="#">Terms and Conditions</a> </label>
 </div>
-<button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#2C2C2C]">Register</button>
+<button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-0">Register</button>
 </form>
 </div>
-<p class="text-center text-sm text-gray-400">
+<p class="text-center text-sm text-gray-600">
   Already have an account?
-  <a class="font-medium text-[#4A90E2] hover:underline" href="{% url 'login' %}">Login</a>
+  <a class="font-medium text-primary hover:underline" href="{% url 'login' %}">Login</a>
 </p>
 </div>
 </div>

@@ -9,88 +9,124 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#137fec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101922",
-          },
-          fontFamily: {
-            "display": ["Lexend", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            {% extends 'base.html' %}
-            {% load static %}
+{% extends 'base.html' %}
+{% load static %}
 
-            {% block title %}Messages{% endblock %}
+{% block title %}Messaging{% endblock %}
 
-            {% block head_extra %}
-            <script id="tailwind-config">
-                tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#86181B", "background-light": "#f6f7f8", "background-dark": "#101922" } } } };
-            </script>
-            <style>
-                .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-            </style>
-            {% endblock %}
+{% block head_extra %}
+<script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#86181B", "background-light": "#f6f7f8", "background-dark": "#101922" } } } };
+</script>
+<style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+{% endblock %}
 
-            {% block topnav %}
-            <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark px-6 py-3 sticky top-0 z-10">
-              <div class="flex items-center gap-4 text-[#181411] dark:text-gray-200">
-                <div class="size-5 text-primary">
-                  <span class="material-symbols-outlined">mail</span>
-                </div>
-                <h2 class="text-[#181411] dark:text-gray-200 text-lg font-bold">Messages</h2>
-              </div>
-              <div class="flex gap-2">
-                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 text-[#181411] dark:bg-white/10 dark:text-gray-300">
-                  <span class="material-symbols-outlined text-lg">notifications</span>
-                </button>
-                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 text-[#181411] dark:bg-white/10 dark:text-gray-300">
-                  <span class="material-symbols-outlined text-lg">settings</span>
-                </button>
-              </div>
-            </div>
-            {% endblock %}
+{% block content %}
+<div class="flex w-full">
+  <!-- Left Panel: Conversation List -->
+  <div class="flex w-full max-w-sm flex-col border-r border-gray-200 bg-white dark:border-gray-800 dark:bg-slate-900/50">
+    <!-- SearchBar -->
+    <div class="border-b border-gray-200 p-4 dark:border-gray-800">
+      <label class="flex h-11 w-full min-w-40 flex-col">
+        <div class="flex h-full w-full flex-1 items-stretch rounded-lg">
+          <div class="flex items-center justify-center rounded-l-lg border-r-0 bg-gray-100 pl-4 text-gray-500 dark:bg-slate-800 dark:text-slate-400">
+            <span class="material-symbols-outlined">search</span>
+          </div>
+          <input class="form-input h-full w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg border-none bg-gray-100 px-4 pl-2 text-base font-normal leading-normal text-gray-800 placeholder:text-gray-500 focus:outline-0 focus:ring-0 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-400" placeholder="Search by parent or student" value=""/>
+        </div>
+      </label>
+    </div>
+    <!-- Conversation List -->
+    <div class="flex-1 overflow-y-auto">
+      <!-- Active ListItem -->
+      <div class="flex cursor-pointer justify-between gap-4 border-l-4 border-primary bg-primary/10 px-4 py-3 dark:bg-primary/20">
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <div class="aspect-square size-14 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtuH_HSiMGX3KGDGOcl1MtsPSupgVdInmd5K4VGUBn31N4PU2Y1vhcrSeWwU-HVp6KVlwGSmviIt5qD-80L2bY-zX9UQUhXA2Pa59QjDu54-9VtoL5K8PkSphzGwmRs0eTlO2WnFUdN5QMDrWNBHTOSILbT2OUL7coPRNQ3DPqYeQ9Kileon1MGDtTPzkfpurfgLGaezmfM2FPboH19x1n-AEqfeZ499R2G5mcvHMSsimn_jfdd1JA39o3TVotvUU6a0FL3eyrAsTd");'></div>
+            <div class="absolute bottom-0 right-0 size-4 rounded-full border-2 border-white bg-green-500 dark:border-slate-900"></div>
+          </div>
+          <div class="flex flex-1 flex-col justify-center">
+            <p class="font-medium leading-normal text-gray-800 dark:text-slate-200">Aisha Nakato</p>
+            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-slate-300">Jaden's Progress - P.5</p>
+            <p class="truncate text-sm font-normal leading-normal text-primary">Yes, I'll be sure to check his homework...</p>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <p class="text-xs font-normal leading-normal text-gray-500 dark:text-slate-400">10:42 AM</p>
+        </div>
+      </div>
 
-            {% block content %}
-            <div class="px-4 sm:px-6 lg:px-8 flex flex-1 justify-center py-5">
-              <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 gap-6">
-                <div class="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
-                  <div class="flex items-center justify-between">
-                    <h2 class="text-lg font-bold">Messages</h2>
-                    <button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-white">
-                      <span class="material-symbols-outlined">add</span>
-                      New Message
-                    </button>
-                  </div>
-                  <div class="mt-4 flex gap-4">
-                    <div class="w-1/3 bg-gray-50 rounded-lg p-3">
-                      <input class="w-full rounded-md border p-2" placeholder="Search conversations" />
-                      <ul class="mt-3 space-y-2">
-                        <li class="p-2 rounded-md bg-white">Mr. Okello</li>
-                        <li class="p-2 rounded-md bg-white">Mrs. Nabirye</li>
-                        <li class="p-2 rounded-md bg-white">Mr. Kato</li>
-                      </ul>
-                    </div>
-                    <div class="flex-1 bg-gray-50 rounded-lg p-3">
-                      <div class="h-72 overflow-y-auto">
-                        <div class="p-2 bg-white rounded-md mb-2">Hello, I wanted to ask about Grace's recent assessment.</div>
-                        <div class="p-2 bg-primary/10 rounded-md mb-2">Sure, she scored 92% in Mathematics.</div>
-                      </div>
-                      <div class="mt-3 flex gap-2">
-                        <input class="flex-1 rounded-md border p-2" placeholder="Type a message" />
-                        <button class="px-3 py-2 rounded-md bg-primary text-white">Send</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endblock %}
+      <!-- Unread ListItem -->
+      <div class="flex cursor-pointer justify-between gap-4 border-b border-gray-100 px-4 py-3 hover:bg-gray-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+        <div class="flex items-center gap-4">
+          <div class="aspect-square size-14 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTV79K6deLLBQuPXm7VEERNsM2INbExEbddg85aL1p2ALA_a4Q5D7fZgohPWQuF5D3DQfHALk4dRFWWGvJNoQxqXFcNXkJmdEFYqUIXeAgCe362AFZerExXSIjthI1PUIVs5GZsmo7tydBKCyiqT-s4bYSTsEctuxEUDQ5s0QJynwTslgO-VMy2twuFaQ8sjvIHzEt6x9XMJBAHlf-2I49O8lW7wWOI7QIdGcj7zlqtEFoxjAjsMpxkIsZVDNZkaptLG2TNY10Ai5u");'></div>
+          <div class="flex flex-1 flex-col justify-center">
+            <p class="font-medium leading-normal text-gray-800 dark:text-slate-200">David Okello</p>
+            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-slate-300">Sarah's Absenteeism - P.3</p>
+            <p class="text-sm font-bold leading-normal text-gray-700 dark:text-slate-300">Thank you for letting me know. Hope...</p>
+          </div>
+        </div>
+        <div class="flex shrink-0 flex-col items-end justify-between">
+          <p class="text-xs font-normal leading-normal text-gray-500 dark:text-slate-400">10:35 AM</p>
+          <div class="flex size-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</div>
+        </div>
+      </div>
+
+      <!-- Read ListItem -->
+      <div class="flex cursor-pointer justify-between gap-4 border-b border-gray-100 px-4 py-3 hover:bg-gray-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <div class="aspect-square size-14 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZPwZGLIX7REcqfel6QZIUk-rJpu92QlHDzkX5CXXuOJ6t60m_IMyPkTrap9uU-y_UQ4lVAlgElxEOBDzppaoRWxcvBht8ac_ojbDcRC8n-rfF9ftukMuf6HTk-tiF5l0Vr8wt2XrehAa2CgvgtuK6SdWA0xmhm6OiTaANOall4cbOf7p-g2XxiP2GxeYnZCpMp5jIj6Wa2h63yO4X1Phvb9AemYqPb3NsB8J-Feyjrw6KBIkxCRLsaAbvl_338wxrgevn_hZNLIUJ");'></div>
+            <div class="absolute bottom-0 right-0 size-4 rounded-full border-2 border-white bg-slate-400 dark:border-slate-900"></div>
+          </div>
+          <div class="flex flex-1 flex-col justify-center">
+            <p class="font-medium leading-normal text-gray-800 dark:text-slate-200">Grace Mbabazi</p>
+            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-slate-300">Peter's Field Trip - P.6</p>
+            <p class="truncate text-sm font-normal leading-normal text-gray-500 dark:text-slate-400">The permission slip has been signed and...</p>
+          </div>
+        </div>
+        <div class="shrink-0"><p class="text-xs font-normal leading-normal text-gray-500 dark:text-slate-400">Yesterday</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel: Main Chat View -->
+  <div class="flex flex-1 flex-col bg-background-light dark:bg-background-dark">
+    <!-- Conversation Header -->
+    <header class="flex shrink-0 items-center gap-4 border-b border-gray-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-slate-900/50">
+      <div class="aspect-square size-12 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjmkxJb0iBjYFhAQzTpPVN4GYot4T72REt9N-RdCAEpSR4UG37DEs4TRTh8NNhXKwEFBBuQNKpgKgIMTt0-Un72UYd5Ko5DrfCTbnhD30awWt53WqfA3j97vbhcywqx0mUXz-bQbB3JkTQmCbM8FXyPuaVRRF0iJzdgLRj4IKAhk7EwDGtFbzsMoqueFLR5mlJM8FbG1_MmyXQn_3CUD6wWhUQQiHeUPhL0v_4wb5B1ibpSF-eneNGRImpxDW98-nd6uw-HdxUeZht");'></div>
+      <div class="flex flex-col">
+        <h2 class="font-medium text-gray-800 dark:text-slate-200">Aisha Nakato</h2>
+        <p class="text-sm text-gray-500 dark:text-slate-400">Regarding: Jaden Mukasa - P.5</p>
+      </div>
+    </header>
+    <!-- Chat History Pane (placeholder) -->
+    <div class="flex-1 space-y-6 overflow-y-auto p-6">
+      <!-- sample messages -->
+      <div class="flex items-end gap-3">
+        <div class="aspect-square size-8 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9wrpy74zTKgAwcoa91X8RQ4w0GSoCEYwVfCy4n9CanHLiJcNpuO7l2H-aTQQ-FrtRP59TyZmUBc1zE83j9_5rdAa3z9fqI_38M8twoe9nk4RrFMr3g0IrtBzxFqS5aShKCiG62P_KM5cXtq49J7vKjppxoY2gF_vokYYuw-O4WBhNH53X6Gn1cdbr7AC2nfHMq6fW2i_O56pjt-tvTuL8Ko0dRhZPprEls2oNA2SkA1Js9A21rlNItMi3E0yqcGDCVCF3RG5ul7wB");'></div>
+        <div class="max-w-md rounded-xl rounded-bl-none bg-white p-4 dark:bg-slate-800">
+          <p class="text-sm text-gray-700 dark:text-slate-300">Good morning. I wanted to follow up on Jaden's performance in Mathematics.</p>
+          <p class="mt-2 text-right text-xs text-gray-400 dark:text-slate-500">10:40 AM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Composer -->
+    <footer class="mt-auto border-t border-gray-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/50">
+      <div class="flex items-center gap-2">
+        <textarea class="form-textarea w-full resize-none rounded-lg border-gray-300 bg-gray-100 p-3 text-sm text-gray-800 placeholder:text-gray-500 focus:border-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-400" placeholder="Type your message here..." rows="1"></textarea>
+        <button class="flex size-11 shrink-0 items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
+          <span class="material-symbols-outlined text-gray-500 dark:text-slate-400">attach_file</span>
+        </button>
+        <button class="flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-white hover:bg-primary/90">
+          <span>Send</span>
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+{% endblock %}
