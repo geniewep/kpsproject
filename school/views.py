@@ -68,7 +68,18 @@ def student_profile_dark(request):
 	return redirect('student_profile_light')
 
 
+@login_required(login_url='login')
 def teacher_dashboard_light(request):
+	# Ensure only users with the teacher role can access this dashboard.
+	user_role = getattr(request.user, 'role', None)
+	if user_role != 'teacher':
+		messages.error(request, 'You do not have permission to access the teacher dashboard.')
+		# Redirect to the appropriate dashboard for their role
+		if user_role == 'parent':
+			return redirect('parent_dashboard_light')
+		else:
+			return redirect('admin_dashboard_light')
+
 	return render(request, 'teacher_dashboard_for_school_management_system_light.html')
 
 
@@ -107,11 +118,11 @@ def login_view(request):
 		if form.is_valid():
 			user = form.get_user()
 			auth_login(request, user)
-			# store selected role in session (this is a simple demo approach)
-			role = request.POST.get('role')
+			# Prefer the authenticated user's role (safer than trusting POST). Fall back to POST for older flows.
+			role = getattr(user, 'role', None) or request.POST.get('role')
 			if role:
 				request.session['role'] = role
-			# Redirect based on selected role (fallback to admin dashboard)
+			# Redirect based on the user's actual role (fallback to admin dashboard)
 			if role == 'parent':
 				return redirect('parent_dashboard_light')
 			elif role == 'teacher':
@@ -163,6 +174,8 @@ def register_view(request):
 				auth_login(request, user)
 				messages.success(request, 'Registration successful. You are now logged in.')
 			# Redirect based on selected role
+			# prefer role stored on the user instance (in case form POST didn't include it)
+			role = getattr(user, 'role', None) or role
 			if role == 'parent':
 				return redirect('parent_dashboard_light')
 			elif role == 'teacher':

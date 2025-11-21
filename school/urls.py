@@ -5,6 +5,8 @@ urlpatterns = [
 	# Avoid using the "admin/" prefix so these views are not confused with Django's admin site
 	# Landing page should be the login page
 	path('', views.login_view, name='login'),
+	# Admin dashboard (light and dark variants)
+	path('admin-dashboard/light/', views.admin_dashboard_light, name='admin_dashboard_light'),
 	path('admin-dashboard/dark/', views.admin_dashboard_dark, name='admin_dashboard_dark'),
 
 	path('attendance/teachers/light/', views.attendance_teachers_light, name='attendance_teachers_light'),
