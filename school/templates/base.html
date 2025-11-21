@@ -62,6 +62,23 @@
                 {% block topnav %}{% endblock %}
             </header>
             <main class="flex-1 p-6 md:p-8 lg:p-10">
+                {# Global messages (Django messages framework) #}
+                {% if messages %}
+                <div class="mb-4 space-y-2">
+                    {% for message in messages %}
+                        {% if 'success' in message.tags %}
+                            <div class="p-3 rounded border border-green-200 bg-green-50 text-green-800">{{ message }}</div>
+                        {% elif 'error' in message.tags or 'danger' in message.tags %}
+                            <div class="p-3 rounded border border-red-200 bg-red-50 text-red-800">{{ message }}</div>
+                        {% elif 'warning' in message.tags %}
+                            <div class="p-3 rounded border border-yellow-200 bg-yellow-50 text-yellow-800">{{ message }}</div>
+                        {% else %}
+                            <div class="p-3 rounded border border-gray-200 bg-gray-50 text-gray-800">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
                 {% block content %}{% endblock %}
             </main>
         </div>

@@ -59,6 +59,21 @@
 </div>
 <div class="rounded-xl bg-white p-6 shadow-sm md:p-8">
 <form method="post" class="space-y-6">{% csrf_token %}
+  {% if form.errors %}
+  <div class="mb-4 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+    <p class="font-medium">Please fix the following errors:</p>
+    <ul class="mt-2 list-disc list-inside">
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li>{{ field.label }}: {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 <div class="grid grid-cols-1 gap-x-4 gap-y-6">
   <label class="flex flex-col">
   <p class="pb-2 text-sm font-medium leading-normal text-gray-800">Username</p>

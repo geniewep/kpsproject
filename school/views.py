@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import CustomUserCreationForm as UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
@@ -126,21 +127,48 @@ def login_view(request):
 
 
 def register_view(request):
-	"""Simple registration view using Django's UserCreationForm.
-
-	On successful registration the new user is created and redirected to the login page.
-	"""
-
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			# optionally capture a chosen role from the registration form and store in session
+			# capture chosen role from the registration form and store in session
 			role = request.POST.get('role')
 			if role:
 				request.session['role'] = role
-			messages.success(request, 'Registration successful. Please log in to continue.')
-			return redirect('login')
+			# Save optional email and role on the user object if provided
+			email = request.POST.get('email')
+			if email:
+				user.email = email
+			if role:
+				# assign the role field on the custom user model (avoid leaving it empty)
+				user.role = role
+			user.save()
+			# Try to authenticate; some environments with a swapped user model
+			# can raise manager access errors when calling authenticate().
+			# To avoid that, attempt authenticate() but fall back to setting
+			# the backend on the user object and logging them in directly.
+			raw_password = form.cleaned_data.get('password1')
+			user_auth = None
+			try:
+				user_auth = authenticate(request, username=user.username, password=raw_password)
+			except Exception:
+				user_auth = None
+			if user_auth is not None:
+				auth_login(request, user_auth)
+				messages.success(request, 'Registration successful. You are now logged in.')
+			else:
+				# If authenticate() fails (or throws due to swapped model manager),
+				# set the backend attribute on the user instance and log them in.
+				user.backend = 'django.contrib.auth.backends.ModelBackend'
+				auth_login(request, user)
+				messages.success(request, 'Registration successful. You are now logged in.')
+			# Redirect based on selected role
+			if role == 'parent':
+				return redirect('parent_dashboard_light')
+			elif role == 'teacher':
+				return redirect('teacher_dashboard_light')
+			else:
+				return redirect('admin_dashboard_light')
 		else:
 			messages.error(request, 'Please correct the errors below.')
 	else:
